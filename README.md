@@ -26,8 +26,8 @@ manage_webpack.init_app(app)
 ```
 
 **Initialize Webpack Config:** 
-1. Run `flask manage-webpack --app your_flask_app`
-2. It will generate config files for webpack.
+- Run `flask manage-webpack --app your_flask_app`
+- It will generate config files for webpack.
 
 **Run Webpack:** `npm start`
 
