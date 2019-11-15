@@ -9,6 +9,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // take debug mode from the environment
 const debug = (process.env.NODE_ENV !== 'production');
@@ -79,6 +80,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: 'css/[name].[contentHash].css', }),
 //    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
 

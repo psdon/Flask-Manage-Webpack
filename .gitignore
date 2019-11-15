@@ -47,6 +47,7 @@ env/
 
 # npm
 node_modules
+package-lock.json
 
 # webpack-built files
 
