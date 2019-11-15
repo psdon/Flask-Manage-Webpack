@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='Flask-Manage-Webpack',
     packages=['flask_manage_webpack'],
-    version='0.1',
+    version='1.0',
     license='MIT',
     description='Flask extension for connecting and managing webpack assets',
     author='Paulo Sairel Don',
@@ -16,6 +16,11 @@ setup(
         'requests',
         'Flask>=1.0'
     ],
+    entry_points={
+        "flask.commands": [
+            "manage-webpack=flask_manage_webpack.cli:init"
+        ],
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',

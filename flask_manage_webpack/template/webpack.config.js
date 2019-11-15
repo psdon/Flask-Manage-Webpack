@@ -25,7 +25,7 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, 'demo', 'static'),
+    path: path.join(__dirname, 'app', 'static'),
     publicPath: "/static/",
     filename: "js/[name].[contentHash].js",
     chunkFilename: "js/[name].[contentHash].chunk.js"

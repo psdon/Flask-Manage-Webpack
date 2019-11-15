@@ -6,7 +6,7 @@ module.exports = {
 
       // Specify the paths to all of the template files in your project
       content: [
-        './demo/templates/**/*.html',
+        './app/templates/**/*.html',
         // etc.
       ],
 

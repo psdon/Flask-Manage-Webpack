@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="{{ webpack_url_for('main_css.css') }}">
 </head>
 <body class="text-center">
-    <h1>
-        Yay! Flask-Manage-Webpack Works!!!
-    </h1>
+    <div id="main">
+        <h1>
+            Yay! Flask-Manage-Webpack Works!!!
+        </h1>
 
-    <p>Everything should be in center.</p>
+        <p>Everything should be in the center.</p>
 
-    <img class="w-50p" src="{{ webpack_url_for('img/bg.jpg') }}">
+        <img class="w-50p" src="{{ webpack_url_for('img/bg.jpg') }}">
+    </div>
 
-    <script src="{{ webpack_url_for('main_js.js') }}"></script>
+    <script nonce="{{ nonce }}">
+        window.NONCE = "{{ nonce }}";
+    </script>
+    <script id="main_js" nonce="{{ nonce }}" src="{{ webpack_url_for('main_js.js') }}" data-view="home"></script>
 </body>
 </html>

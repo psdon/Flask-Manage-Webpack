@@ -31,9 +31,9 @@ if (currentUrl !== redirectTo) {
 /*
 Where dynamic import starts
 Usage:
-    - In your <script> tag, add 'data-view' attribute and assign the module you want to be loaded
-
+    - In your <script id="main_js"> tag, add 'data-view' attribute and assign the module you want to be loaded
 */
+
 const view = document.getElementById('main_js').getAttribute('data-view');
 const dataRoutes = [`${view}`];
 

@@ -112,4 +112,4 @@ module.exports = __webpack_require__(/*! /home/me/PycharmProjects/Flask-Manage-W
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main_css.0fda1ad0397e6e19aa1b.js.map
+//# sourceMappingURL=main_css.3f1ba086f683bb05f82f.js.map
