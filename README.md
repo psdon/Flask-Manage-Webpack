@@ -5,11 +5,11 @@ and out of the box it made possible to:
  
 1. Import your assets via `webpack_url_for()` in your templates.
 2. Browser caching via hash tagging.
-3. Dynamic import().
+3. Code splitting and dynamic import().
 4. Compatible with Content-Security-Policy: `e.g. script-src: 'nonce-<random-value>`
-4. Working with CDN, and static host provider such as `Netlify` 
+5. Working with CDN, and static host provider such as `Netlify` 
 for making your Webpack build process automated.
-5. Extending the functionality by using Webpack.
+6. Extending the functionality by using Webpack.
 
 ### Quick start
 **Install:** `pip install Flask-Manage-Webpack`
