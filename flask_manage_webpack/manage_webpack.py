@@ -14,9 +14,8 @@ class FlaskManageWebpack:
             self.init_app(app)
 
     def init_app(self, app):
-        default_manifest_path = os.path.join(app.static_folder, "manifest.json")
 
-        app.config.setdefault("MANAGE_WEBPACK_MANIFEST_PATH", default_manifest_path)
+        app.config.setdefault("MANAGE_WEBPACK_MANIFEST_PATH", "static")
         app.config.setdefault("MANAGE_WEBPACK_ASSETS_URL", None)
         app.config.setdefault("MANAGE_WEBPACK_MANIFEST_URL", None)
 
@@ -31,6 +30,12 @@ class FlaskManageWebpack:
 
     def _get_webpack_assets(self, app):
         manifest_path = app.config["MANAGE_WEBPACK_MANIFEST_PATH"]
+
+        if manifest_path == "static":
+            manifest_path = os.path.join(app.root_path, "static", "manifest.json")
+        else:
+            manifest_path = os.path.join(app.root_path, manifest_path)
+
         external_manifest_url = app.config["MANAGE_WEBPACK_MANIFEST_URL"]
 
         if external_manifest_url:
