@@ -1,6 +1,6 @@
 {
   "name": "demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Flask demo that used Flask-Manage-Webpack.",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --colors -p",

@@ -1,11 +1,19 @@
-from distutils.core import setup
+from setuptools import setup
+
+import pathlib
+HERE = pathlib.Path(__file__).parent
+
+README = (HERE/"README.md").read_text()
 
 setup(
     name='Flask-Manage-Webpack',
     packages=['flask_manage_webpack'],
-    version='1.0',
+    include_package_data=True,
+    version='1.0.1',
     license='MIT',
     description='Flask extension for connecting and managing webpack assets',
+    long_description=README,
+    long_description_content_type="text/markdown",
     author='Paulo Sairel Don',
     author_email='connect.psdon@gmail.com',
     url='https://github.com/psdon/Flask-Manage-Webpack',
@@ -26,7 +34,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3',
     ],
 )

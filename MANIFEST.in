@@ -1,0 +1,3 @@
+recursive-include flask_manage_webpack/ *
+include README.md setup.cfg setup.py
+
