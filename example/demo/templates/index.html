@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask-Manage-Webpack</title>
+
+    <link rel="stylesheet" href="{{ webpack_url_for('main_css.css') }}">
+</head>
+<body class="text-center">
+    <h1>
+        Yay! Flask-Manage-Webpack Works!!!
+    </h1>
+
+    <p>Everything should be in center.</p>
+
+    <img class="w-50p" src="{{ webpack_url_for('img/bg.jpg') }}">
+
+    <script src="{{ webpack_url_for('main_js.js') }}"></script>
+</body>
+</html>

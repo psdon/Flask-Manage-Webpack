@@ -1,0 +1,13 @@
+.text-center{
+    text-align: center;
+}
+
+.flex-center{
+    display: flex;
+    justify: center;
+    width: 100%;
+}
+
+.w-50p{
+    width: 50%;
+}

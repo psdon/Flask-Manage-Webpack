@@ -1,0 +1,51 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "A flask app demo for Flask-Manage-Webpack.",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --progress --colors -p",
+    "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
+    "webpack-watch": "NODE_ENV=debug webpack --mode development --watch",
+    "flask-server": "flask run",
+    "lint": "eslint \"assets/js/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psdon/Flask-Manage-Webpack.git"
+  },
+  "author": "Paulo Sairel Don",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "bugs": {
+    "url": "https://github.com/psdon/Flask-Manage-Webpack/issues"
+  },
+  "homepage": "https://github.com/psdon/Flask-Manage-Webpack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.6.3",
+    "@fullhuman/postcss-purgecss": "^1.3.0",
+    "autoprefixer": "^9.6.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "compression-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.0.0",
+    "copy-webpack-plugin": "^5.0.5",
+    "css-loader": "^3.0.0",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^7.0.18",
+    "postcss-cli": "^6.1.3",
+    "postcss-loader": "^3.0.0",
+    "raw-loader": "^3.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.0.0",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-manifest-plugin": "^2.2.0"
+  }
+}

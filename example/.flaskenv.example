@@ -1,0 +1,5 @@
+# Environment variable overrides for local development
+FLASK_APP=demo.app:create_app
+FLASK_DEBUG=1
+FLASK_ENV=development
+SECRET_KEY=not-so-secret
