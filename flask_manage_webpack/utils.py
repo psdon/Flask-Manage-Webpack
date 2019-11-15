@@ -1,5 +1,5 @@
-import os
 import errno
+import os
 import shutil
 
 
@@ -15,7 +15,6 @@ def copy(src, destination):
 
 
 def init_webpack_config(app_name):
-
     edit_template = ["package.json",
                      "postcss.config.js",
                      "webpack.config.js"]
@@ -35,4 +34,3 @@ def init_webpack_config(app_name):
             print(f"{template} initialized failed. File exists.")
 
     copy(assets_path, f"{os.getcwd()}/assets")
-

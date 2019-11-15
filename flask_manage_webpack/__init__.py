@@ -1,1 +1,1 @@
-from.manage_webpack import FlaskManageWebpack
+from .manage_webpack import FlaskManageWebpack
