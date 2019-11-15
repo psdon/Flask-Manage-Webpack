@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/psdon/Flask-Manage-Webpack.svg?branch=master)](https://travis-ci.org/psdon/Flask-Manage-Webpack)
 ![PyPI](https://img.shields.io/pypi/v/Flask-Manage-Webpack)
+<img src="https://flat.badgen.net/dependabot/psdon/Flask-Manage-Webpack?icon=dependabot" alt="Dependabot Badge" />
 
 # What is Flask-Manage-Webpack?
 A Flask extension that connect and manage your webpack generated assets.
