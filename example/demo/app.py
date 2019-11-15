@@ -1,7 +1,8 @@
 from flask import Flask
+
+from flask_manage_webpack import FlaskManageWebpack
 from . import settings
 from .views import bp
-from flask_manage_webpack import FlaskManageWebpack
 
 
 def create_app(config_object=None):
@@ -9,16 +10,17 @@ def create_app(config_object=None):
 
     :param config_object: The configuration object to use.
     """
-    app = Flask(__name__.split(".")[0])
+    app = Flask(__name__)
 
     if config_object:
         app.config.from_object(config_object)
     else:
         app.config.from_object(settings.Dev)
 
-    # Register Extension
     manage_webpack = FlaskManageWebpack()
     manage_webpack.init_app(app)
+
+    # Register Extension
 
     app.register_blueprint(bp)
 

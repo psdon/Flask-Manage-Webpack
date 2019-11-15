@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, after_this_request
 import uuid
+
+from flask import Blueprint, render_template, after_this_request
 
 bp = Blueprint("main", __name__)
 

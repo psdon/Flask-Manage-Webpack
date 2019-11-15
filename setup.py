@@ -1,18 +1,13 @@
 from setuptools import setup
 
-import pathlib
-HERE = pathlib.Path(__file__).parent
-
-README = (HERE/"README.md").read_text()
-
 setup(
     name='Flask-Manage-Webpack',
     packages=['flask_manage_webpack'],
     include_package_data=True,
-    version='1.1.0',
+    version='1.2.0',
     license='MIT',
     description='Flask extension for connecting and managing webpack assets',
-    long_description=README,
+    long_description=open("README.md", "r").read(),
     long_description_content_type="text/markdown",
     author='Paulo Sairel Don',
     author_email='connect.psdon@gmail.com',
