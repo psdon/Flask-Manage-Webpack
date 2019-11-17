@@ -16,6 +16,7 @@ and out of the box it made possible to:
 for making your Webpack build process automated.
 7. Extending the functionality by using Webpack.
 
+---
 ### Quick start
 **Install:** `pip install Flask-Manage-Webpack`
 
@@ -38,6 +39,7 @@ manage_webpack.init_app(app)
 
 > For more info, checkout the demo app inside example folder.
 
+---
 ### How to import assets in HTML?
 **Import your main stylesheet to HTML:**
 
@@ -51,15 +53,15 @@ manage_webpack.init_app(app)
 1. Put your images to `assets/img/` or to your preferred folder structure.
 2. In HTML, import your image via relative path: `<img src="{{ webpack_url_for('img/something.jpg') }}">`
 
-
+---
 ### Config Variables:
 1. `MANAGE_WEBPACK_MANIFEST_PATH` defaults to `static/manifest.json`
 2. `MANAGE_WEBPACK_ASSETS_URL`: Your static url domain name. Defaults to `None`
 3. `MANAGE_WEBPACK_MANIFEST_URL`: Your absolute manifest.json url. This is useful if you wish to host you manifest.json file in a remote server,
  and if you like to automate your Webpack build process by hosting it to such service like `Netlify`. i.e.`https://example.com/manifest.json`
 
-
-### Production
+---
+### In Production:
 **How to reload your manifest file?** 
 When you add another asset or make changes, `webpack-manifest-plugin` insert mappings of your new asset build files in the manifest.json.
 In development mode when you made changes in your assets, this plugin automatically reload and re-fetch the manifest file, 
