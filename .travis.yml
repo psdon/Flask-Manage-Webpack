@@ -9,4 +9,5 @@ install:
   - 'pip install -e .'
 
 script:
+  - 'cd ./example; npm install; npm run build;'
   - 'py.test example/tests'

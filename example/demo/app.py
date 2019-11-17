@@ -1,6 +1,6 @@
 from flask import Flask
 
-from flask_manage_webpack import FlaskManageWebpack
+from .extensions import manage_webpack
 from . import settings
 from .views import bp
 
@@ -17,7 +17,6 @@ def create_app(config_object=None):
     else:
         app.config.from_object(settings.Dev)
 
-    manage_webpack = FlaskManageWebpack()
     manage_webpack.init_app(app)
 
     # Register Extension

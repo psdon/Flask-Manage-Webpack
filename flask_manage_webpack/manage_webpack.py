@@ -22,11 +22,11 @@ class FlaskManageWebpack:
 
         self._get_webpack_assets(app)
         if app.config.get("DEBUG", False):
-            app.before_request(self._reload_webpack_assets)
+            app.before_request(self.reload_manifest)
 
         app.add_template_global(self.webpack_url_for)
 
-    def _reload_webpack_assets(self):
+    def reload_manifest(self):
         return self._get_webpack_assets(current_app)
 
     def _get_webpack_assets(self, app):

@@ -55,3 +55,21 @@ manage_webpack.init_app(app)
 2. `MANAGE_WEBPACK_ASSETS_URL`: Your static url domain name. Defaults to `None`
 3. `MANAGE_WEBPACK_MANIFEST_URL`: Your absolute manifest.json url. This is useful if you wish to host you manifest.json file in a remote server,
  and if you like to automate your Webpack build process by hosting it to such service like `Netlify`. i.e.`https://example.com/manifest.json`
+
+
+### Production
+**How to reload your manifest file?** 
+When you add another asset or make changes, `webpack-manifest-plugin` insert mappings of your new asset build files in the manifest.json.
+In development mode when you made changes in your assets, this plugin automatically reload and re-fetch the manifest file, 
+but in production this is not ideal to fetch the manifest file in every requests.
+So when you added a new asset (i.e. image), you have to tell `Flask-Manage-Webpack` to reload the manifest. 
+
+```
+from .extensions import manage_webpack
+
+@bp.route("/reload-manifest")
+def reload_manifest():
+
+    manage_webpack.reload_manifest()
+    return redirect('/')
+```
