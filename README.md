@@ -57,7 +57,7 @@ manage_webpack.init_app(app)
 ### Config Variables:
 1. `MANAGE_WEBPACK_MANIFEST_PATH` defaults to `static/manifest.json`
 2. `MANAGE_WEBPACK_ASSETS_URL`: Your static url domain name. Defaults to `None`
-3. `MANAGE_WEBPACK_MANIFEST_URL`: Your absolute manifest.json url. This is useful if you wish to host you manifest.json file in a remote server,
+3. `MANAGE_WEBPACK_MANIFEST_URL`: Your absolute manifest.json url. This is useful if you wish to host your manifest.json file in a remote server,
  and if you like to automate your Webpack build process by hosting it to such service like `Netlify`. i.e.`https://example.com/manifest.json`
 
 ---
