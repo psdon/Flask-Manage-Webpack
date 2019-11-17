@@ -1,7 +1,7 @@
 from flask import Flask
 
-from .extensions import manage_webpack
 from . import settings
+from .extensions import manage_webpack
 from .views import bp
 
 
@@ -17,10 +17,10 @@ def create_app(config_object=None):
     else:
         app.config.from_object(settings.Dev)
 
+    # Register Extension
     manage_webpack.init_app(app)
 
-    # Register Extension
-
+    # Register Blueprint
     app.register_blueprint(bp)
 
     return app

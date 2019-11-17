@@ -1,6 +1,7 @@
 import uuid
 
 from flask import Blueprint, render_template, after_this_request, redirect, url_for
+
 from .extensions import manage_webpack
 
 bp = Blueprint("main", __name__)
