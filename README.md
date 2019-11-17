@@ -11,10 +11,11 @@ and out of the box it made possible to:
 2. Import your assets via `webpack_url_for()` in your templates.
 3. Browser caching via hash tagging.
 4. Code splitting and dynamic import().
-5. Compatible with Content-Security-Policy: `e.g. script-src: 'nonce-<random-value>`
-6. Working with CDN, and static host provider such as `Netlify` 
+5. Remove unused CSS, with the help of `Purgecss`
+6. Compatible with Content-Security-Policy: `e.g. script-src: 'nonce-<random-value>`
+7. Working with CDN, and static host provider such as `Netlify` 
 for making your Webpack build process automated.
-7. Extending the functionality by using Webpack.
+8. Extending the functionality by using Webpack.
 
 ---
 ### Quick start
