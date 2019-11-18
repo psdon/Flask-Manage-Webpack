@@ -21,7 +21,7 @@ class FlaskManageWebpack:
         app.config.setdefault("MANAGE_WEBPACK_MANIFEST_URL", None)
 
         self._get_webpack_assets(app)
-        if app.config.get("DEBUG", False):
+        if app.config.get("DEBUG"):
             app.before_request(self.reload_manifest)
 
         app.add_template_global(self.webpack_url_for)
@@ -51,6 +51,8 @@ class FlaskManageWebpack:
 
         external_url = current_app.config.get("MANAGE_WEBPACK_ASSETS_URL")
         if external_url:
-            return f"{external_url}{self.webpack_assets.get(file)}"
+            file_url = f"{external_url}{self.webpack_assets.get(file)}"
+        else:
+            file_url = self.webpack_assets.get(file)
 
-        return self.webpack_assets.get(file)
+        return file_url

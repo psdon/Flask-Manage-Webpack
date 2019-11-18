@@ -1,6 +1,6 @@
 import uuid
 
-from flask import Blueprint, render_template, after_this_request, redirect, url_for
+from flask import Blueprint, render_template, after_this_request, redirect, url_for, current_app
 
 from .extensions import manage_webpack
 
@@ -11,12 +11,14 @@ bp = Blueprint("main", __name__)
 def main():
     nonce = uuid.uuid4().hex + uuid.uuid1().hex
 
-    @after_this_request
-    def set_content_security_policy_headers(response):
-        csp = f"script-src 'nonce-{nonce}'; " \
-            f"style-src 'self';"
-        response.headers.add('Content-Security-Policy', csp)
-        return response
+    if not current_app.config.get('DEBUG'):
+        # Disable DEBUG to test this
+        @after_this_request
+        def set_content_security_policy_headers(response):
+            csp = f"script-src 'nonce-{nonce}'; " \
+                f"style-src 'self';"
+            response.headers.add('Content-Security-Policy', csp)
+            return response
 
     return render_template("index.html", nonce=nonce)
 

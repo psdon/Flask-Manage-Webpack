@@ -1,2 +1,2 @@
 class Dev:
-    DEBUG = False
+    DEBUG = True

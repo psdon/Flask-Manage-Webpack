@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./assets/js/module/empty.js"],"names":["empty"],"mappings":"wFACe,SAASA,KADxB","file":"js/2.9a4a2c7404fee3502002.chunk.js","sourcesContent":["// This module is being used to detect if Dynamic import() is supported by the browser.\nexport default function empty() {}\n"],"sourceRoot":""}

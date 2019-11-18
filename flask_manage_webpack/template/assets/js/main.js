@@ -8,6 +8,14 @@
 // eslint-disable-next-line no-undef
 __webpack_nonce__ = window.NONCE;
 
+// load static files
+require.context(
+  '../', // context folder
+  true, // include subdirectories
+  /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i, // RegExp
+);
+
+
 // Check if Dynamic import() is supported by the browser
 function supportsDynamicImport() {
   try {
@@ -31,9 +39,9 @@ if (currentUrl !== redirectTo) {
 /*
 Where dynamic import starts
 Usage:
-    - In your <script id="main_js"> tag, add 'data-view' attribute and assign the module you want to be loaded
-*/
+    - In your <script> tag, add 'data-view' attribute and assign the module you want to be loaded
 
+*/
 const view = document.getElementById('main_js').getAttribute('data-view');
 const dataRoutes = [`${view}`];
 

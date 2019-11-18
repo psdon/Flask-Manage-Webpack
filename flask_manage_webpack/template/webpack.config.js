@@ -8,13 +8,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // take debug mode from the environment
 const debug = (process.env.NODE_ENV !== 'production');
-
+const hashType = debug ? '[hash]': '[contentHash]'
 const rootAssetPath = path.join(__dirname, 'assets');
+const publicHost = debug ? 'http://0.0.0.0:2992' : '';
 
 module.exports = {
   // configuration
@@ -27,9 +28,9 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'app', 'static'),
-    publicPath: "/static/",
-    filename: "js/[name].[contentHash].js",
-    chunkFilename: "js/[name].[contentHash].chunk.js"
+    publicPath: `${publicHost}/static/`,
+    filename: "js/[name]." + hashType + ".js",
+    chunkFilename: "js/[name]." + hashType + ".chunk.js"
   },
   optimization: {
   minimizer: [
@@ -75,24 +76,19 @@ module.exports = {
         ],
       },
       { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', options: { limit: 10000, mimetype: 'demolication/font-woff' } },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff' } },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['@babel/preset-env'], cacheDirectory: true } },
+      {
+        test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
+        loader: `file-loader?context=${rootAssetPath}&name=[path][name].${hashType}.[ext]`
+      },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: 'css/[name].[contentHash].css', }),
+    new IgnoreEmitPlugin(/(?<=main_css\s*).*?(?=\s*js)/gs),
+    new MiniCssExtractPlugin({ filename: 'css/[name].' + hashType + '.css', }),
 //    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
 
-    new CopyPlugin([
-      {
-        from: `${rootAssetPath}`,
-        to: `${path.join(__dirname, 'demo', 'static')}/[path]/[name].[contentHash].[ext]`,
-        test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
-        toType: 'template',
-      },
-
-    ], {copyUnmodified: true}),
     new ManifestPlugin(
     {
         map: (file) => {
@@ -100,6 +96,7 @@ module.exports = {
         file.name = file.name.replace(/(\.[a-f0-9]{32})(\..*)$/, '$2');
         return file;
         },
+        writeToFileEmit: true,
     }),
   ].concat(debug ? [] : [
     // production webpack plugins go here
@@ -107,5 +104,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       } }),
+
+    new CleanWebpackPlugin(),
   ]),
 };
