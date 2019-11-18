@@ -11,10 +11,11 @@ and out of the box it made possible to:
 2. Import your assets via `webpack_url_for()` in your templates.
 3. Browser caching via hash tagging.
 4. Code splitting and dynamic import().
-5. Compatible with Content-Security-Policy: `e.g. script-src: 'nonce-<random-value>`
-6. Working with CDN, and static host provider such as `Netlify` 
+5. Remove unused CSS, with the help of `Purgecss`
+6. Compatible with Content-Security-Policy: `e.g. script-src: 'nonce-<random-value>`
+7. Working with CDN, and static host provider such as `Netlify` 
 for making your Webpack build process automated.
-7. Extending the functionality by using Webpack.
+8. Extending the functionality by using Webpack.
 
 ---
 ### Quick start
@@ -57,7 +58,7 @@ manage_webpack.init_app(app)
 ### Config Variables:
 1. `MANAGE_WEBPACK_MANIFEST_PATH` defaults to `static/manifest.json`
 2. `MANAGE_WEBPACK_ASSETS_URL`: Your static url domain name. Defaults to `None`
-3. `MANAGE_WEBPACK_MANIFEST_URL`: Your absolute manifest.json url. This is useful if you wish to host you manifest.json file in a remote server,
+3. `MANAGE_WEBPACK_MANIFEST_URL`: Your absolute manifest.json url. This is useful if you wish to host your manifest.json file in a remote server,
  and if you like to automate your Webpack build process by hosting it to such service like `Netlify`. i.e.`https://example.com/manifest.json`
 
 ---
