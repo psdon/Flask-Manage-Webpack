@@ -6,16 +6,38 @@ const webpack = require('webpack');
  */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+// Get local IP Address
+var os = require('os');
+var interfaces = os.networkInterfaces();
+var addresses = [];
+for (var k in interfaces) {
+    for (var k2 in interfaces[k]) {
+        var address = interfaces[k][k2];
+        if (address.family === 'IPv4' && !address.internal) {
+            addresses.push(address.address);
+        }
+    }
+}
+
+ip_address = addresses[0]
 
 // take debug mode from the environment
 const debug = (process.env.NODE_ENV !== 'production');
 const hashType = debug ? '[hash]': '[contentHash]'
 const rootAssetPath = path.join(__dirname, 'assets');
-const publicHost = debug ? 'http://0.0.0.0:2992' : '';
+let publicHost
+
+if (ip_address != undefined) {
+    publicHost = debug ? 'http://' + ip_address + ':2992' : '';
+}
+else {
+    publicHost = debug ? 'http://0.0.0.0:2992' : '';
+}
 
 module.exports = {
   // configuration
@@ -34,15 +56,9 @@ module.exports = {
   },
   optimization: {
   minimizer: [
-   new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
+    new TerserPlugin({
+        test: /\.js(\?.*)?$/i,
         sourceMap: true,
-        uglifyOptions: {
-          output: {
-            comments: false
-          }
-        }
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
