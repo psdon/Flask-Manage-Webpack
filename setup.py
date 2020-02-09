@@ -4,7 +4,7 @@ setup(
     name='Flask-Manage-Webpack',
     packages=['flask_manage_webpack'],
     include_package_data=True,
-    version='1.4.0',
+    version='1.4.1',
     license='MIT',
     description='Flask extension for connecting and managing webpack assets',
     long_description=open("README.md", "r").read(),
