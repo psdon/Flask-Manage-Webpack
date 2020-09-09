@@ -40,7 +40,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss": "^7.0.26",
     "postcss-cli": "^7.1.0",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^4.0.1",
     "raw-loader": "^4.0.0",
     "url-loader": "^4.0.0",
     "webpack": "^4.41.5",
