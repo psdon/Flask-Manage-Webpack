@@ -32,7 +32,7 @@
     "concurrently": "^5.1.0",
     "css-loader": "^5.0.0",
     "eslint": "^7.3.1",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.20.1",
     "file-loader": "^6.0.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
